@@ -1,15 +1,16 @@
 <?php
-session_start();
+//session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="csvlezenstyle.css"> -->
     <title>CSV LEZEN</title>
 </head>
   <body>
-    <h1>Sensor Data Analytics</h1><br>
+    <h1 class = "x">Sensor Data Analytics</h1><br>
     <h4>Door middel van de links kunnen de verschillende pagina's worden geopend.</h4><br>
     <p><a href="dashboard.php">DASHBOARD</a></p><br>
     <p><a href="brugdbsetup.php">Database- en tabel setup</a></p><br>

@@ -1,10 +1,11 @@
 <?php
+//Database server verbindings variabelen
 
 
   //Database lokale verbindings variabelen
   $servername = "localhost";
-  $password = "wachtwoord";
-  $username = "naam";
+  $password = "pass;
+  $username = "user";
   $dbname = "sourceDB";
   //$pijlebrug = "pijlebrug";
   //$brugdepunt = "brugdepunt";

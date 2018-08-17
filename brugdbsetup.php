@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  //session_start();
 
   ?>
 
@@ -41,9 +41,9 @@
     echo "Lijst van database gegevens:" . "<br>";
   $servername = "localhost";
   echo "servernaam:" . " " . $servername . "<br>";
-  $password = "miner";
+  $password = "pass";
     echo "wachtwoord:" . " " . $password . "<br>";
-  $username = "manic";
+  $username = "user";
     echo "gebruikersnaam:" . " " . $username . "<br>";
   //dit is de naam van de DATABASE
   $dbname = "sourceDB";
@@ -96,22 +96,6 @@
     echo "Database " . $dbname . " created successfully<br>";
     $conn = null;
 
-    // $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    //     // sql die nodig is om tabel te maken met kolommen-met-datatype
-    //     $sql = "CREATE TABLE IF NOT EXISTS $blogtabel (
-    //     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    //     tijd TIMESTAMP,
-    //     titel VARCHAR(30),
-    //     naam VARCHAR(30),
-    //     afbeeld VARCHAR(100),
-    //     tekst TEXT,
-    //     react TEXT,
-    //     category VARCHAR(100)
-    //     )";
-    //     // use exec() because no results are returned
-        // $conn->exec($sql);
-        // echo "Table " . $blogtabel . " created successfully<br>";
-
     //maak admin tabel als deze nog niet bestaat
     // sql die nodig is om tabel te maken met kolommen-met-datatype
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -134,19 +118,6 @@
           //standaar test-admin aanmaak boodschap
           echo "Hallo armandold, welkom bij de club." . "<br>";
           echo "Je wachtwoord is: beniktemin<br>";
-          echo "Terug naar de beginpagina en lekker een beetje testen ofzo." . "<br>";
-
-            // sql die nodig is om tabel te maken met kolommen-met-datatype
-            // $sql = "CREATE TABLE IF NOT EXISTS $reactietabel (
-            // id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            // blognum VARCHAR(30),
-            // tijdr TIMESTAMP,
-            // poster VARCHAR(30),
-            // tekstr VARCHAR(50)
-            // )";
-            // // use exec() because no results are returned
-            // $conn->exec($sql);
-            // echo "Table " . $reactietabel . " created successfully<br>";
 
             //maak een tabel met naam: gebruikers als deze nog niet bestaat:
             // sql die nodig is om tabel te maken met kolommen-met-datatype

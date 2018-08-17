@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'brugdbconn.php';
 ?>
 
@@ -8,7 +8,7 @@ include 'brugdbconn.php';
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="dashboardstyle.css">
+    <!-- <link rel="stylesheet" type="text/css" href="dashboardstyle.css"> -->
     <title>Toon Bruggendata</title>
 </head>
   <body>
