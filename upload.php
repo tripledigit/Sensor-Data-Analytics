@@ -14,7 +14,6 @@ include './brugdbconn.php';
     <h4>Door middel van de links kunnen de verschillende pagina's worden geopend.</h4><br>
     <p><a href="index.html">Index</a></p><br>
     <p><a href="dashboard.php">DASHBOARD</a></p><br>
-    <p><a href="brugdbsetup.php">Database- en tabel setup</a></p><br>
     <p><a href="csvlezen.php">CSV bestand uitkiezen en in een tabel zetten</a></p><br>
 
   </body>
@@ -26,7 +25,7 @@ $tijd= date('Y-m-d h:i:s');
 $tabelnaam = $_POST["tabelnaam"];
 $brugnaam = $_POST["brugnaam"];
 $bruggenlijst = "bruggenlijst";
-$uploaddir = '/var/www/html/uploads/';
+$uploaddir = './uploads/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 //echo '<pre>';
@@ -41,7 +40,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $sql = "CREATE TABLE IF NOT EXISTS $tabelnaam (
     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(30),
-    tijd TIMESTAMP,
+    tijd VARCHAR(30),
     toestand VARCHAR(30)
     )";
     // doe query die de tabel maakt

@@ -27,24 +27,10 @@ include './brugdbconn.php';
 <body>
 	<?php
 		$brug = $_POST["brugnaam"];
-		$tx = $_POST["datum"];
-		if ($_POST['datum'] == FALSE){$tx = "01-01-01";}
-		$ta = $_POST["dagdeel"];
 
-				//maak periode-test-variabelen aan de hand van gekozen dagdeel
-				if($ta<"1" OR $ta>"4"){$tb = $tx . " 00:00";  $te = $tx . " 23:59";}
-				if($ta =="1") {$tb = $tx . " 00:00";  $te = $tx . " 06:00";}
-				if($ta =="2") {$tb = $tx . " 06:00";  $te = $tx . " 12:00";}
-			  if($ta =="3") {$tb = $tx . " 12:00";  $te = $tx . " 18:00";}
-				if($ta =="4") {$tb = $tx . " 18:00";  $te = $tx . " 23:59";}
 
-		echo "<h1>Brug:" . " " . $brug . " tussen" . " " . $tb . " en " . $te . "</h1><br>";
+		echo "<h1>Brug:" . " " . $brug  . "</h1><br>";
 
-				//maak getallen van de datum te kunnen vergelijken
-				$tbd = preg_replace("/[^a-zA-Z0-9]/", "",$tb);
-				//echo $tbd;
-				$ted = preg_replace("/[^a-zA-Z0-9]/", "",$te);
-				//echo $ted;
 ?>
 
 	<div class="limiter">
@@ -74,28 +60,20 @@ include './brugdbconn.php';
 
 								$tabelnaam = $_POST["detabel"];
 								//query met dag selectie uit de timestamp (timestamp is eigenlijk een string)
-				        $sql = "SELECT * FROM $tabelnaam WHERE tijd LIKE :tijd ORDER BY id ASC";
-				        $tx = "%$tx%";
+				        $sql = "SELECT * FROM $tabelnaam ORDER BY id ASC";
+
 				        $statement = $conn->prepare($sql);
-				        //$result = $conn->query($sql); andere fetch methode
-				        $statement->bindValue(':tijd', $tx);
 				        $statement->execute();
 				        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-				        		//echo $tx . "<br>";
+
 				     foreach ($result as $row){
-								//maak van de datum uit de database een getal
-								$test = preg_replace("/[^a-zA-Z0-9]/", "",$row['tijd']);
-								// echo $test; echo $tbd; echo $ted;
-								// test of de gevonden tijd binnen het gekozen dagdeel valt
-								//zo ja, zet de data in de tabel op het scherm
-						if(($test>=$tbd) AND ($test<=$ted)){
 								echo "<tr class=\"row100 body\">
 									 <td class=\"cell100 column1\">" . $row['id'] . "</td>" .
 									"<td class=\"cell100 column2\">" . $row['code'] . "</td>" .
 									"<td class=\"cell100 column3\">" . $row['tijd'] . "</td>" .
 									"<td class=\"cell100 column4\">" . $row['toestand'] . "</td>" .
 									"</tr>";
-								}}
+								}
 
 $conn = null;
 //							vanaf een positie karakters uit een string lezen
