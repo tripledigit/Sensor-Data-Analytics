@@ -1,7 +1,6 @@
 <?php
   //session_start();
-
-  ?>
+?>
 
   <!DOCTYPE html>
   <html>
@@ -35,15 +34,15 @@
   //maak een tijd-variabele met opmaak en maak variabelen voor de DataBase verbinding
   $tijd= date('Y-m-d h:i:s');
   //maak variabelen voor de DataBase verbinding database naam en de 1e tabelnaam
-  // $servername = "localhost";
-  // $username = "arnold_blogje";
-  // $password = "lFz9Tmpp8c";
-    echo "Lijst van database gegevens:" . "<br>";
   $servername = "localhost";
-  echo "servernaam:" . " " . $servername . "<br>";
-  $password = "pass";
-    echo "wachtwoord:" . " " . $password . "<br>";
   $username = "user";
+  $password = "pass";
+    echo "Lijst van database gegevens:" . "<br>";
+
+  echo "servernaam:" . " " . $servername . "<br>";
+
+    echo "wachtwoord:" . " " . $password . "<br>";
+
     echo "gebruikersnaam:" . " " . $username . "<br>";
   //dit is de naam van de DATABASE
   $dbname = "sourceDB";
@@ -54,7 +53,7 @@
   //dit is de naam van de tabel waarin alle gebruikers worden geregistreerd
   $gebruikerstabel = "gebruikers";
     echo "gebruikerstabel:" . " " . $gebruikerstabel . "<br>";
-  //naam van de tabellenlijst
+  //naam van de bruggenlijst
   $bruggenlijst = "bruggenlijst";
     echo "bruggenlijst:" . " " . $bruggenlijst . "<br>";
 
@@ -96,7 +95,7 @@
     echo "Database " . $dbname . " created successfully<br>";
     $conn = null;
 
-    //maak admin tabel als deze nog niet bestaat
+    // maak admin tabel als deze nog niet bestaat
     // sql die nodig is om tabel te maken met kolommen-met-datatype
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $sql = "CREATE TABLE IF NOT EXISTS $admintabel (
@@ -112,7 +111,7 @@
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         //maak query om de gebruikers gegevens in de tabel in te voeren
         $sql = "INSERT INTO $admintabel (adminlidgew, admins, adminwoord, adminemail)
-        VALUES ('$tijd', 'armandold', 'beniktemin', 'a.m.k.dijkstra@gmail.com')";
+        VALUES ('$tijd', 'armandold', 'beniktemin', 'xorron@norrox.com')";
         //dit is de schrijfactie naar de betreffende tabel
         $conn->exec($sql);
           //standaar test-admin aanmaak boodschap

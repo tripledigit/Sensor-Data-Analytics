@@ -5,6 +5,12 @@ include './brugdbconn.php';
 <html lang="en">
 <head>
 	<title>TABEL UITVOER</title>
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="css/1-col-portfolio.css" rel="stylesheet">
+
+	<p><a class="btn btn-primary p-3 mb-2 bg-success text-white" href="dashboardtabel.php">Terug naar keuzepagina</a></p><br>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -24,7 +30,8 @@ include './brugdbconn.php';
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body div class="p-3 mb-2 bg-info text-white">
+	<div class="p-3 mb-2 bg-secondary text-white">
 	<?php
 		$brug = $_POST["brugnaam"];
 
@@ -32,7 +39,7 @@ include './brugdbconn.php';
 		echo "<h1>Brug:" . " " . $brug  . "</h1><br>";
 
 ?>
-
+<div class="p-3 mb-2 bg-info text-white">
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -51,7 +58,6 @@ include './brugdbconn.php';
 							</thead>
 						</table>
 					</div>
-
 					<div class="table100-body js-pscroll">
 						<table>
 							<tbody>
@@ -67,8 +73,8 @@ include './brugdbconn.php';
 				        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 				     foreach ($result as $row){
-								echo "<tr class=\"row100 body\">
-									 <td class=\"cell100 column1\">" . $row['id'] . "</td>" .
+								echo "<tr class=\"row100 body\" >
+									 <td class=\"cell100 column1\">" . $row['entry'] . "</td>" .
 									"<td class=\"cell100 column2\">" . $row['code'] . "</td>" .
 									"<td class=\"cell100 column3\">" . $row['tijd'] . "</td>" .
 									"<td class=\"cell100 column4\">" . $row['toestand'] . "</td>" .
@@ -86,6 +92,7 @@ $conn = null;
 
 							</tbody>
 						</table>
+					 </div>
 					</div>
 				</div>
 
@@ -95,6 +102,7 @@ $conn = null;
 					</div> -->
 				</div>
 			</div>
+		</div>
 		</div>
 	<!-- </div> -->
 
@@ -121,6 +129,7 @@ $conn = null;
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
 
 </body>
 </html>

@@ -12,8 +12,26 @@ include "brugdbconn.php";
       if($ta =="2") {$tb = $tx . " 06:00";  $te = $tx . " 12:00"; $tmin = "06"; $tmax = "12";}
       if($ta =="3") {$tb = $tx . " 12:00";  $te = $tx . " 18:00"; $tmin = "12"; $tmax = "18";}
       if($ta =="4") {$tb = $tx . " 18:00";  $te = $tx . " 23:59"; $tmin = "18"; $tmax = "24";}
+      if($ta =="5") {$tb = $tx . " 00:00";  $te = $tx . " 23:59"; $tmin = "00"; $tmax = "24";}
+?>
 
-  echo "<h1>Brug:" . " " . $brugnaam . " tussen" . " " . $tb . " en " . $te . "</h1><br>";
+<!DOCTYPE html>
+  <html>
+    <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="dashboardstyle.css"> -->
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+      <title>Toon Bruggendata</title>
+</head>
+
+<body class="p-3 mb-2 bg-info text-white">
+  <p><a class="btn btn-primary p-3 mb-2 bg-success text-white" href="kolominvoer.php">Terug naar invoerpagina</a></p>
+
+<?php
+      echo "<h1>Brug:" . " " . $brugnaam . " tussen" . " " . $tb . " en " . $te . "</h1><br>";
 
       //maak getallen van de datum te kunnen vergelijken
       $tbd = preg_replace("/[^a-zA-Z0-9]/", "",$tb);
@@ -108,7 +126,7 @@ function drawAxisTickColors() {
       chart.draw(data, options);
     }
     </script>
-<p><a href="dashboard.php">DASHBOARD</a></p><br>
+
 <?php
 $conn = null;
 ?>

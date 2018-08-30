@@ -5,6 +5,12 @@ include './brugdbconn.php';
 <html lang="en">
 <head>
 	<title>TABEL UITVOER</title>
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="css/1-col-portfolio.css" rel="stylesheet">
+
+	<p><a class="btn btn-primary p-3 mb-2 bg-success text-white" href="ainvoer.php">Terug naar invoerpagina</a></p><br>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -24,11 +30,12 @@ include './brugdbconn.php';
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body div class="p-3 mb-2 bg-info text-white">
+	<div class="p-3 mb-2 bg-secondary text-white">
 	<?php
 		$brug = $_POST["brugnaam"];
 		$tx = $_POST["datum"];
-		if ($_POST['datum'] == FALSE){$tx = "01-01-01";}
+		if ($_POST['datum'] == FALSE){$tx = "00-00-00";}
 		$ta = $_POST["dagdeel"];
 
 				//maak periode-test-variabelen aan de hand van gekozen dagdeel
@@ -46,7 +53,7 @@ include './brugdbconn.php';
 				$ted = preg_replace("/[^a-zA-Z0-9]/", "",$te);
 				//echo $ted;
 ?>
-
+<div class="p-3 mb-2 bg-info text-white">
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -118,8 +125,8 @@ $conn = null;
 				</div>
 			</div>
 		</div>
-	<!-- </div> -->
-
+	</div>
+</div>
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
